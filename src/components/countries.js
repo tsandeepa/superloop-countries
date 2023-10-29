@@ -28,7 +28,7 @@ const Countries = ({ countries, search, setSelectedCountry }) => {
     <>
       {
         countries.filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase())).map((country, i) => (
-          <motion.div key={i} className={`group py-2 cursor-pointer border-solid border-2 border-black hover:border-sky-200  ${i === activeItem ? 'bg-slate-600' : ''}`}
+          <motion.div key={i} className={`group py-2 cursor-pointer    hover:border-sky-200  ${i === activeItem ? 'bg-slate-600' : ''}`}
             onClick={() => setActiveCountry(country, i)}
           >
             <motion.div className='flex'
@@ -38,7 +38,7 @@ const Countries = ({ countries, search, setSelectedCountry }) => {
               animate="visible"
             >
               <div className='flex justify-center w-28'>
-                <img className='w-[60px] h-[60px] rounded-full object-cover group-hover:rounded-[50px] transition-all duration-200 ease-in-out' src={country.flags.svg} alt="" />
+                <img className='w-[60px] h-[60px] rounded-full object-cover group-hover:rounded-[50px] transition-all duration-500 ease-in-out' src={country.flags.svg} alt="" />
               </div>
               <div className='flex items-center text-ellipsis overflow-hidden whitespace-nowrap max-w-[200px]'>
                 {country.name.common}
