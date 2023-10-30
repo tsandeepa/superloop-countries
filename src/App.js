@@ -7,21 +7,23 @@ import Countries from './components/countries';
 import Layout from './components/layout';
 import CountryInfo from './components/countryInfo';
 
-
-
 function App() {
 
   const [search, setSearch] = useState('');
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState();
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [activeItem, setActiveItem] = useState(null);
+  const [loading, setLoading] = useState(false);
   const url = 'https://restcountries.com/v3.1/all';
 
   useEffect(() => {
+    setLoading(true)
     const fetchCountries = async () => {
       try {
         const response = await axios.get(url);
         setCountries(response.data);
         // console.log(response.data);
+        setLoading(false)
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -30,6 +32,11 @@ function App() {
   }, []);
 
   const debouncedSetTest = debounce((value) => setSearch(value), 200);
+
+  const setActiveCountry = (country, i) => {
+    setSelectedCountry(country)
+    setActiveItem(i)
+  }
 
   return (
     <div className="App flex-1">
@@ -40,15 +47,21 @@ function App() {
             <p className="text-slate-200">Select or search for a country for details. </p>
           </div>
           <div className='text-left'>
-            <input placeholder='Search country name' className='w-full text-black p-4' type="text" onChange={(e) => debouncedSetTest(e.target.value)} />
+            <input placeholder='Search country name' className='w-full text-white p-4 bg-slate-800 rounded-full mb-8' type="text" onChange={(e) => debouncedSetTest(e.target.value)} />
           </div>
           <div className='flex flex-col gap-4 py-4 h-[calc(70vh-100px)]  overflow-y-auto'>
-            <Countries countries={countries} search={search} setSelectedCountry={setSelectedCountry} />
+            <Countries
+              countries={countries}
+              search={search}
+              setActiveCountry={setActiveCountry}
+              activeItem={activeItem}
+              loading={loading}
+            />
           </div>
           <p className="py-7 text-center h-[10vh] text-slate-300">Copyright © 2023</p>
         </div>
         <div className='flex-1 flex items-center relative'>
-          <CountryInfo country={selectedCountry} />
+          <CountryInfo country={selectedCountry} setActiveCountry={setActiveCountry} />
         </div>
       </div>
     </div>
