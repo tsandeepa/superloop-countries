@@ -3,7 +3,7 @@ import { BsFlag } from 'react-icons/bs'
 
 const CountryInfoEmpty = () => {
   return (
-    <motion.div className="flex flex-col items-center max-w-[70%] mx-auto rounded-sm p-5 border-slate-800 flex-1"
+    <motion.div className="hidden lg:flex flex-col justify-center items-center max-w-[70%] mx-auto rounded-sm p-5 border-slate-800 flex-1"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}

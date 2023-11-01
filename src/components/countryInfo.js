@@ -11,20 +11,17 @@ const CountryInfo = ({ country, setActiveCountry }) => {
 
   if (country) {
     currency = Object.values(country?.currencies);
-
-  } else {
-    return <CountryInfoEmpty />
   }
 
   return (
-    <>
+    <div className='flex flex-1 items-center lg:relative fixed top-0 left-0 w-full h-screen bg-black lg:bg-transparent'>
       {
         country && <motion.div className="w-full"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <button className="absolute top-[50px] text-xl text-slate-400 left-1/2 -translate-x-1/2 border border-slate-600 p-3 rounded-full hover:text-slate-300 hover:border-slate-400" onClick={() => setActiveCountry(null, null)}><AiOutlineClose /></button>
+          <button className="absolute top-[50px]  text-xl lg:text-slate-400 text-slate-200 left-1/2 -translate-x-1/2 border lg:border-slate-500 border-slate-300 p-3 lg:p-3 rounded-full hover:text-slate-300 hover:border-slate-400" onClick={() => setActiveCountry(null, null, true)}><AiOutlineClose /></button>
           <h3 className='text-4xl mb-9'> {country?.name.common} </h3>
           <div className='flex justify-center gap-9'>
             <div className=''>
@@ -56,7 +53,7 @@ const CountryInfo = ({ country, setActiveCountry }) => {
           </div>
         </motion.div>
       }
-    </>
+    </div>
   );
 }
 

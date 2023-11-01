@@ -5,7 +5,6 @@ import axios from 'axios';
 import Countries from './components/countries';
 import CountryInfo from './components/countryInfo';
 import { CiSearch } from 'react-icons/ci'
-import CountryInfoEmpty from './components/countryInfoEmtry';
 
 function App() {
 
@@ -67,9 +66,12 @@ function App() {
             <span>Copyright © 2023</span>
           </div>
         </div>
-        {
-          selectedCountry ? <CountryInfo country={selectedCountry} setActiveCountry={setActiveCountry} /> : <CountryInfoEmpty />
-        }
+        <div className={`flex-1 ${countryMobileView ? 'hidden' : ''}`}>
+          <div className=" flex items-center lg:relative fixed top-0 left-0 w-full h-screen bg-black lg:bg-transparent">
+            <CountryInfo country={selectedCountry} setActiveCountry={setActiveCountry} />
+          </div>
+        </div>
+
       </div>
     </div>
   );
