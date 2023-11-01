@@ -22,7 +22,7 @@ const Countries = ({ countries, search, setActiveCountry, activeItem, loading })
       {
         !loading ?
           countries.filter((country) => country.name.common.toLowerCase().includes(search.toLowerCase())).map((country, i) => (
-            <motion.div key={i} className={`group py-2 rounded-full cursor-pointer border-solid border-2 border-transparent hover:border-slate-700  ${i === activeItem ? 'border-black bg-gradient-to-r from-slate-700 from-10% via-30% to-transparent to-80%' : ''}`}
+            <motion.div key={i} className={`group py-2 rounded-full cursor-pointer border-solid border-2 border-transparent hover:border-slate-700  ${i === activeItem ? 'border-slate-950 bg-gradient-to-r from-slate-700 from-10% via-30% to-transparent to-80%' : ''}`}
               onClick={() => setActiveCountry(country, i, true)}
             >
               <motion.div className='flex'
@@ -34,7 +34,7 @@ const Countries = ({ countries, search, setActiveCountry, activeItem, loading })
                 <div className='flex justify-center w-28 relative left-[-16px]'>
                   <img className='w-[60px] h-[60px] rounded-full object-cover group-hover:rounded-[50px] transition-all duration-500 ease-in-out' src={country.flags.svg} alt="" />
                 </div>
-                <div className='flex lg:text-xl text-lg items-center text-ellipsis overflow-hidden whitespace-nowrap '>
+                <div className='flex text-xl items-center text-ellipsis overflow-hidden whitespace-nowrap '>
                   {country.name.common}
                 </div>
               </motion.div>
