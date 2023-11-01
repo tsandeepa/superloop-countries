@@ -3,7 +3,6 @@ const Layout = ({ children }) => {
     <div className="flex flex-col container mx-auto h-screen">
       {children}
     </div>
-
   );
 }
 

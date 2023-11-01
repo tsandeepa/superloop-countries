@@ -1,13 +1,8 @@
 import { motion } from 'framer-motion';
-import CountryInfoEmpty from './countryInfoEmtry';
 import { AiOutlineClose } from 'react-icons/ai'
 
 const CountryInfo = ({ country, setActiveCountry }) => {
   let currency = null;
-
-  if (country) {
-    console.log(country);
-  }
 
   if (country) {
     currency = Object.values(country?.currencies);

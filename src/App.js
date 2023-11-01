@@ -5,7 +5,7 @@ import axios from 'axios';
 import Countries from './components/countries';
 import CountryInfo from './components/countryInfo';
 import { CiSearch } from 'react-icons/ci'
-import CountryInfoEmpty from './components/countryInfoEmtry';
+import CountryInfoEmpty from './components/countryInfoEmpty';
 
 function App() {
 
@@ -13,7 +13,6 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [activeItem, setActiveItem] = useState(null);
-  const [countryMobileView, setCountryMobileView] = useState(false);
   const [loading, setLoading] = useState(false);
   const url = 'https://restcountries.com/v3.1/all';
 
@@ -23,7 +22,6 @@ function App() {
       try {
         const response = await axios.get(url);
         setCountries(response.data);
-        // console.log(response.data);
         setLoading(false)
       } catch (error) {
         console.error('Error fetching data:', error);
