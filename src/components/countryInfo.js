@@ -16,7 +16,7 @@ const CountryInfo = ({ country, setActiveCountry }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <button className="absolute lg:top-[50px] lg:bottom-auto lg:right-auto bottom-[30px] right-2 text-xl lg:text-slate-400 text-slate-200 lg:left-1/2 -translate-x-1/2 border lg:border-slate-500 border-slate-300 p-3 lg:p-3 rounded-full hover:text-slate-300 hover:border-slate-400" onClick={() => setActiveCountry(null, null)}><AiOutlineClose /></button>
+          <button className="absolute lg:top-[50px] top-4  lg:right-auto right-0 text-xl lg:text-slate-400 text-slate-200 lg:left-1/2 -translate-x-1/2 border lg:border-slate-500 border-slate-300 p-3 lg:p-3 rounded-full hover:text-slate-300 hover:border-slate-400" onClick={() => setActiveCountry(null, null)}><AiOutlineClose /></button>
           <h3 className='text-4xl mb-9'> {country?.name.common} </h3>
           <div className='flex flex-col lg:flex-row justify-center lg:gap-9 gap-2'>
             <div>
