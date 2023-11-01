@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 import CountriesLoading from './countriesLoading';
 
 const Countries = ({ countries, search, setActiveCountry, activeItem, loading }) => {
@@ -14,7 +13,6 @@ const Countries = ({ countries, search, setActiveCountry, activeItem, loading })
       },
     }),
     hidden: { opacity: 0, scale: 0.9 },
-    tap: { scale: 0.9 }
   }
 
   return (
