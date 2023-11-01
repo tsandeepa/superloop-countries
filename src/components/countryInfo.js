@@ -21,20 +21,20 @@ const CountryInfo = ({ country, setActiveCountry }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <button className="absolute top-[50px]  text-xl lg:text-slate-400 text-slate-200 left-1/2 -translate-x-1/2 border lg:border-slate-500 border-slate-300 p-3 lg:p-3 rounded-full hover:text-slate-300 hover:border-slate-400" onClick={() => setActiveCountry(null, null, true)}><AiOutlineClose /></button>
+          <button className="absolute lg:top-[50px] lg:bottom-auto lg:right-auto bottom-[30px] right-2 text-xl lg:text-slate-400 text-slate-200 lg:left-1/2 -translate-x-1/2 border lg:border-slate-500 border-slate-300 p-3 lg:p-3 rounded-full hover:text-slate-300 hover:border-slate-400" onClick={() => setActiveCountry(null, null)}><AiOutlineClose /></button>
           <h3 className='text-4xl mb-9'> {country?.name.common} </h3>
-          <div className='flex justify-center gap-9'>
-            <div className=''>
+          <div className='flex flex-col lg:flex-row justify-center lg:gap-9 gap-2'>
+            <div>
               <p className='text-slate-400 uppercase'>Currency</p>
               <p>{currency[0].name}</p>
             </div>
-            <div className='border-r border-slate-500'></div>
-            <div className=''>
+            <div className='hidden lg:block border-r border-slate-500'></div>
+            <div>
               <p className='text-slate-400 uppercase'>Symbol</p>
               <p className='text-xl'>{currency[0].symbol}</p>
             </div>
-            <div className='border-r border-slate-500'></div>
-            <div className=''>
+            <div className='hidden lg:block border-r border-slate-500'></div>
+            <div>
               <p className='text-slate-400 uppercase'>Drives On</p>
               <p className='capitalize'>{country.car.side}</p>
             </div>
